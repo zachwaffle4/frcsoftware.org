@@ -1,0 +1,21 @@
+{
+    "aside.caution": "Advertencia",
+    "aside.example": "Ejemplo",
+    "aside.exercise": "Ejercicio",
+    "aside.video": "Vídeo",
+    "aside.wip": "En construcción",
+    "header.menuToggle": "Alternar el menú de navegación",
+    "banner.development": "Este sitio web todavía está en desarrollo. Si encuentras algún error, repórtalo {link}.",
+    "banner.developmentLinkText": "aquí",
+    "courseSection.underConstruction": "(En construcción)",
+    "glossary.definitionNotFound": "Definición no encontrada",
+    "footer.github": "Abrir FRCSoftware.org en GitHub",
+    "footer.discord": "Unirse al Discord de FRCSoftware.org",
+    "card.copyLink": "Copiar el enlace al portapapeles",
+    "slides.previous": "Diapositiva anterior",
+    "slides.next": "Diapositiva siguiente",
+    "slides.goTo": "Ir a la diapositiva {number}",
+    "slides.closeLightbox": "Cerrar la vista ampliada",
+    "video.unsupported": "Tu navegador no admite la etiqueta de vídeo.",
+    "video.youTubeTitle": "Vídeo de YouTube"
+}

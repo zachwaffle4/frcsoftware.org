@@ -1,0 +1,195 @@
+---
+title: Bucles
+description: Una introducción a los bucles en Java
+codeRegionSources:
+    default: stage0/snippets/src/Loops.java
+---
+
+Muchas veces en el código hace falta repetir la misma acción varias veces seguidas.
+Por ejemplo, si sabes que están a punto de publicar tus notas, puede que las consultes una y otra vez hasta que salgan.
+En Java podemos usar bucles para hacer esto.
+
+En esta lección vamos a ver dos tipos principales de bucles: los bucles **while** y los bucles **for**.
+
+<Aside type="note">
+    Otro tipo de bucle es el do-while, pero no lo vamos a cubrir porque se usa
+    poco en FRC. Aun así, si quieres aprender más sobre los bucles do-while,
+    puedes hacerlo en
+    [w3school](https://www.w3schools.com/java/java_while_loop_do.asp).
+</Aside>
+
+Los condicionales y los bucles pueden parecer similares, pero tienen propósitos distintos.
+Tanto los condicionales como los bucles controlan el flujo de los programas.
+Los condicionales se usan para ejecutar un bloque de código una vez, mientras que un bucle puede ejecutar un bloque de código varias veces.
+
+## while
+
+Los bucles `while` son el tipo de bucle más sencillo.
+
+La sintaxis de un bucle `while` es la siguiente:
+
+```java #whileSyntax
+
+```
+
+Puede que notes que un bucle `while` se parece mucho al condicional `if`, que vimos en la lección anterior.
+Un bucle `while` incluye:
+
+- la palabra clave `while` para declarar que estamos haciendo un bucle `while`
+- `( )` para contener la condición, que es verdadera o falsa.
+  Ejemplo: (5 > 1) es una condición y es verdadera porque 5 es mayor que 1
+- `{` para marcar la apertura del bloque de código del bucle
+- `}` para marcar el final del bloque de código del bucle
+
+Igual que el condicional `if`, el bucle `while` ejecuta su bloque de código si la condición es verdadera.
+Sin embargo, a diferencia del condicional `if`, cuando el bloque de código termina, el bucle `while` vuelve a evaluar su condición.
+Si la condición sigue siendo verdadera, el bloque de código se ejecuta otra vez.
+Esto se repite hasta que la condición sea falsa.
+También a diferencia del condicional `if`, un bucle `while` (o cualquier otro tipo de bucle) no puede llevar sentencias `else` asociadas.
+Esto significa que si la condición es falsa la primera vez que se llega al bucle, se salta entero.
+
+Veamos un ejemplo:
+
+```java #whileExample
+
+```
+
+En el ejemplo hay un `int` llamado `i` que contiene el valor 0. El bucle `while` tiene la condición `i < 6`.
+Primero, el código comprueba si la condición es verdadera.
+Sabemos que 0 es menor que 6, así que el bloque de código del `while` se ejecuta y el valor de `i`, que ahora mismo es 0, se imprime en la terminal.
+El valor de `i` también se actualiza por culpa de `i++` y pasa a ser 1.
+Ahora la condición comprueba si 1 es menor que 6. Sabemos que es verdad, así que el valor de `i` se imprime y el valor de `i` aumenta en 1.
+Esto se repite y al final el valor de `i` llega a 6.
+Ahora, cuando se evalúa la condición, es `false`, porque 6 no es menor que 6, así que el bucle termina.
+
+<Aside type="tip">
+    ¿Te suena el ``i++``? Lo vimos en la sección de operadores. Si necesitas
+    repasar qué es un operador y cómo funciona, echa un vistazo a la [página de
+    operadores](/learning-course/stage0/operators).
+</Aside>
+
+¡Veamos otro ejemplo!
+En el ejemplo de abajo tenemos:
+
+```java #whileExample2
+
+```
+
+Sin ejecutar el código, ¿qué crees que pasa?
+
+`timer` vale 0, y la condición del bucle `while` comprueba si `timer` es menor o igual que 5.
+0 es menor que 5, así que el código entra en el bucle while.
+Ahora la sentencia `if` comprueba si `timer` es menor que 5.
+0 es menor que 5, así que imprime `Drive Forward`.
+La sentencia `if` termina, y el código ejecuta `timer++`, que aumenta el valor de `timer` en uno.
+
+El código vuelve al bucle `while`.
+1 es menor que 5, así que el código entra otra vez en el bucle `while`.
+En la sentencia `if`, 1 es menor que 5.
+Por lo tanto, `Drive Forward` se vuelve a imprimir.
+
+Esto se repite 4 veces hasta que `timer` vale 5.
+Cuando pasa esto, la sentencia `if` se salta, porque 5 no es menor que 5.
+Ahora se ejecuta el else e imprime `Stop Driving`, el valor de `timer` sube a 6, 6 no es menor que 5, y el código deja de ejecutarse.
+
+## for
+
+Con la potencia de los bucles while podemos repetir un bloque de código tantas veces como queramos, así:
+
+```java #ForExample1
+
+```
+
+Este bucle depende de 3 sentencias importantes:
+`int i = 0;`, `i < 6` e `i++`.
+Los bucles for nos permiten poner estas sentencias en una sola línea:
+
+```java #ForExample2
+
+```
+
+Usando el ejemplo anterior, podemos ver que la sintaxis del bucle `for` incluye:
+
+- la palabra clave `for` para declarar que estamos haciendo un bucle `for`
+- `()` para contener las tres sentencias que permiten que el bucle funcione
+- `{` para marcar la apertura del bloque de código del bucle
+- `}` para marcar el final del bloque de código del bucle
+
+Las tres sentencias son
+
+- **inicialización**: crea una variable que establece el punto de partida del bucle.
+  Es el `int i = 0;` que se ve en el ejemplo anterior.
+- **condición**: una condición, que usa la variable, y que se comprueba antes de cada iteración.
+  Es `i < 6;`.
+  Si la condición es verdadera, se ejecuta el código de dentro del bucle
+- **actualización**: actualiza la variable creada en la inicialización después de cada iteración.
+  Por último, es `i++`;
+
+Las 3 sentencias son opcionales, pero los puntos y coma tienen que estar.
+Aun así, los ejemplos de esta sección van a usar todas las sentencias.
+
+Veamos otro ejemplo:
+
+```java #forExample
+
+```
+
+En este ejemplo creamos una variable `i` que vale 0. Mientras `i` sea menor que 5, el bloque de código del `for` se ejecuta e imprime el valor de `i`, que es 0.
+Después vuelve a la sentencia de actualización, que es `i++`, `i` aumenta en 1 y el valor de `i` ahora es 1.
+Comprobamos la condición, 1 es menor que 5, así que el bloque de código del `for` se ejecuta, se imprime el nuevo valor de `i`, `i` se actualiza y esto se repite hasta que `i` ya no sea menor que 5.
+Cuando `i` ya no es menor que 5, el bucle `for` se salta.
+
+## Cuidado con los bucles infinitos
+
+Es importante asegurarse de que la condición pueda llegar a ser falsa.
+Si la condición siempre es verdadera, el bucle se ejecuta para siempre y se produce un bucle infinito.
+Cuando ocurre un bucle infinito, el código no para nunca.
+Esto puede ser peligroso si el código está moviendo un mecanismo del robot.
+Podría hacer que un robot no dejara nunca de avanzar o que un brazo se moviera sin parar.
+Los bucles infinitos se pueden evitar asegurándose de que el valor que aparece en la condición cambia, incrementándolo o decrementándolo.
+
+<Aside type="note">
+
+Cuando te metas de lleno en la programación de FRC, verás que a veces los bucles infinitos son incluso recomendables (por ejemplo, en los comandos).
+Hablaremos más de esto en la Etapa 1
+
+</Aside>
+
+{/* rli:ignore */}
+
+```java
+    int timer = 0;
+    if (false) {
+        while (timer < 7){
+            drivetrain.setThrottle(1); // pone los motores de tracción a máxima velocidad
+        }
+    }
+```
+
+En este ejemplo queremos que nuestro chasis funcione durante 7 segundos.
+Tenemos nuestra variable llamada `timer`, que vale 0.
+0 es menor que 7, así que el código de dentro se ejecuta y el robot avanza a máxima velocidad.
+Sin embargo, el valor de `timer` no cambia nunca.
+Esto significa que `timer` siempre va a valer 0. 0 es menor que 7, así que el bucle se ejecuta sin parar ¡y el robot no deja nunca de conducir!
+
+Para arreglarlo, nos aseguraríamos de incrementar el valor del temporizador, como se ve abajo.
+
+{/* rli:ignore */}
+
+```java
+    int timer = 0;
+    while (timer < 7){
+        drivetrain.setThrottle(1); // pone los motores de tracción a máxima velocidad
+        timer++; // incrementa timer en 1
+    }
+```
+
+Ahora `timer` se incrementa en 1 cada vez que se ejecuta el bucle, y el robot dejará de conducir después de 7 segundos.
+
+## Ejercicio de bucles
+
+<Aside type="exercise">
+
+¡Ahora ya puedes meterte directamente en `loops.java!` Sigue los comentarios y escribe el código necesario para cumplir los objetivos.
+
+</Aside>

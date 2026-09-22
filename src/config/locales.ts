@@ -7,6 +7,7 @@ export const defaultLang = 'en';
 // adding an entry here. The directory name must match `lang`.
 const configuredLocales: Record<string, { label: string; lang: string }> = {
     root: { label: 'English', lang: defaultLang },
+    es: { label: 'Español', lang: 'es' },
 };
 
 export const langByLocaleDir: Record<string, string> = Object.fromEntries(

@@ -1,0 +1,91 @@
+# Spanish glossary.
+#
+# Keys are the canonical English terms from glossary.yaml. `term` is the word
+# matched in Spanish prose and shown in the tooltip; omit it when the term is a
+# product name or acronym that isn't translated. Omit `definition` — or the
+# whole entry — to fall back to English.
+
+# Electronics
+PDH:
+    definition: Hub de distribución de energía
+
+SPARK MAX:
+    definition: Controlador para motores REV
+
+Talon FX:
+    definition: Controlador para motores CTRE
+
+Systemcore:
+    definition: >-
+        Procesador principal del código del robot, contiene varias entradas y
+        salidas
+
+CAN:
+    definition: >-
+        Controller Area Network: cable típicamente amarillo y verde que se usa
+        para comunicarse con controladores de motores y sensores, se puede
+        conectar en varias topologías en vez de que cada cable tenga que llegar
+        al Systemcore
+
+PWM:
+    definition: >-
+        Modulación por ancho de pulsos: especificación de comunicación que se
+        usa con controladores de motores y sensores, necesita conectarse de
+        vuelta al Systemcore
+
+Main Breaker:
+    term: Interruptor principal
+    # "Main Breaker" is left to the English matcher on English pages only; in
+    # Spanish prose the translated term is the one that appears.
+    matchEnglish: false
+    definition: Interruptor de encendido del robot
+
+Limit Switch:
+    term: Final de carrera
+    definition: >-
+        Tipo de sensor que se activa al ser golpeado física o magnéticamente.
+        Se puede usar para disparar acciones en un flanco de subida o bajada, o
+        para comprobar el estado de un mecanismo
+
+Throughbore Encoder:
+    term: Encoder de eje pasante
+    definition: >-
+        Encoder que permite que un eje pase por su centro para registrar la
+        posición angular
+
+# Magnetic Encoder is intentionally untranslated so the English entry is used.
+
+# Software
+Repository:
+    term: Repositorio
+    definition: >-
+        Lugar donde se almacena tu código y los archivos relacionados, usado a
+        menudo con sistemas de control de versiones como Git.
+        Los repositorios son carpetas que contienen archivos y subcarpetas, y
+        se pueden alojar en plataformas como GitHub para facilitar la
+        colaboración y el seguimiento de versiones
+
+CI:
+    definition: >-
+        Integración continua: práctica de desarrollo en la que se combinan
+        cambios de código en un repositorio compartido con frecuencia, lo que
+        dispara compilaciones y pruebas automáticas para mantener estable el
+        código
+
+WPILib:
+    definition: >-
+        WPILib es la biblioteca y el conjunto de herramientas estándar que se
+        ofrece a los equipos para escribir, probar y depurar el código de sus
+        robots de FIRST® Robotics Competition y FIRST® Tech Challenge
+
+AprilTag:
+    definition: >-
+        Marcador fiducial (parecido a un código QR) que WPILib y las
+        herramientas de visión de los proveedores pueden detectar para
+        determinar la posición y orientación de una cámara respecto al marcador
+
+GitHub:
+    definition: >-
+        GitHub es como Google Drive, pero para código.
+        Aloja repositorios de git y permite colaborar mejor en proyectos
+        mediante pull requests e issues

@@ -31,11 +31,16 @@ export type SidebarItem = {
 
 const learningCourse: SidebarTopic = {
     label: 'Learning Course',
+    translations: { es: 'Curso de Aprendizaje' },
     id: 'learning-course',
     link: '/learning-course/',
     icon: 'notes',
     items: [
-        { label: 'Overview', slug: 'learning-course' },
+        {
+            label: 'Overview',
+            translations: { es: 'Resumen' },
+            slug: 'learning-course',
+        },
         {
             label: 'Website Feature Guide',
             slug: 'learning-course/getting-started/website-feature-guide',
@@ -82,7 +87,11 @@ const learningCourse: SidebarTopic = {
                     label: 'Conditionals',
                     slug: 'learning-course/stage0/conditionals',
                 },
-                { label: 'Loops', slug: 'learning-course/stage0/loops' },
+                {
+                    label: 'Loops',
+                    translations: { es: 'Bucles' },
+                    slug: 'learning-course/stage0/loops',
+                },
                 {
                     label: 'Classes and Objects',
                     slug: 'learning-course/stage0/classes-objects',
@@ -232,6 +241,7 @@ const learningCourse: SidebarTopic = {
 
 const educatorsGuide: SidebarTopic = {
     label: "Educator's Guide",
+    translations: { es: 'Guía del Educador' },
     id: 'educators-guide',
     link: '/educators-guide/introduction/',
     icon: 'open-book',
@@ -262,11 +272,16 @@ const educatorsGuide: SidebarTopic = {
 
 const bestPractices: SidebarTopic = {
     label: 'Best Practices',
+    translations: { es: 'Buenas Prácticas' },
     id: 'best-practices',
     link: '/best-practices/overview/',
     icon: 'approve-check-circle',
     items: [
-        { label: 'Overview', slug: 'best-practices/overview' },
+        {
+            label: 'Overview',
+            translations: { es: 'Resumen' },
+            slug: 'best-practices/overview',
+        },
         { label: 'Git Usage', slug: 'best-practices/git-usage' },
         { label: 'GitHub Usage', slug: 'best-practices/github-usage' },
         { label: 'Code Formatter', slug: 'best-practices/code-formatter' },
@@ -276,6 +291,7 @@ const bestPractices: SidebarTopic = {
 
 const resources: SidebarTopic = {
     label: 'Resources',
+    translations: { es: 'Recursos' },
     id: 'resources',
     link: '/resources/overview/',
     icon: 'document',
@@ -284,12 +300,17 @@ const resources: SidebarTopic = {
         { label: 'Examples', slug: 'resources/examples' },
         { label: 'Documentation', slug: 'resources/docs' },
         { label: 'Hardware', slug: 'resources/hardware-intro' },
-        { label: 'Glossary', slug: 'resources/glossary' },
+        {
+            label: 'Glossary',
+            translations: { es: 'Glosario' },
+            slug: 'resources/glossary',
+        },
     ],
 };
 
 const contribution: SidebarTopic = {
     label: 'Contribution',
+    translations: { es: 'Contribución' },
     id: 'contribution',
     link: '/contribution/',
     icon: 'code-branch',

@@ -1,0 +1,58 @@
+---
+title: Introducción al Hardware
+description: Una introducción a los componentes de hardware para programadores
+---
+
+## Controladores de motores
+
+Mientras que los motores son los actuadores físicos que hacen girar los mecanismos de un robot, los controladores de motores son las interfaces electrónicas que controlan la velocidad y la dirección del motor.
+La mayoría de los controladores de motores también ofrecen funciones inteligentes, como controladores PID integrados y encoders integrados.
+
+Los controladores de motores se usan por todo el robot en muchos mecanismos:
+
+- Intakes: hacen girar ruedas para recoger piezas de juego
+- Lanzadores: hacen girar volantes de inercia para lanzar piezas de juego
+- Indexadores: mueven las piezas de juego por el robot
+- Brazos y elevadores: suben y bajan mecanismos (a menudo con control de posición)
+- Escaladores: extienden o retraen los mecanismos de escalada
+
+Hay controladores de motores CAN disponibles de proveedores como CTR Electronics (Talon FX) y REV Robotics (SPARK MAX).
+
+![Controlador de motor TalonFX](../../../../../public/hardware-intro/talonfx-motor-controller.webp#w=30)
+![Controlador de motor SPARK MAX](../../../../../public/hardware-intro/spark-max-motor-controller.webp#w=20)
+
+## Encoders
+
+Los encoders miden el movimiento de rotación.
+Son fiables y menos propensos al ruido y a las interferencias que los dispositivos analógicos (como los potenciómetros), porque producen señales digitales.
+Pueden devolver la posición y la velocidad de un mecanismo.
+Los encoders vienen en varios formatos, y se pueden montar en el extremo de un eje o tener un eje que pase a través de ellos.
+Muchos controladores de motores también llevan encoders integrados.
+Los encoders relativos siguen los cambios de posición y se ponen a cero cuando se apaga el robot, mientras que los encoders absolutos registran posiciones exactas y únicas a lo largo de una vuelta completa y conservan ese dato incluso sin alimentación.
+
+## Beam break
+
+Un beam break detecta si hay algo entre dos puntos y devuelve un valor binario.
+Los beam breaks suelen ser [`DigitalInput`](https://github.wpilib.org/allwpilib/docs/2027/java/org/wpilib/hardware/discrete/DigitalInput.html)s y devuelven un `boolean`.
+Se pueden usar para detectar cuándo una pieza de juego pasa por un punto concreto del robot.
+
+## Final de carrera
+
+Un final de carrera detecta si algo está en una posición o a una distancia determinada y devuelve un valor binario.
+Los finales de carrera se usan a menudo para limitar el rango de movimiento de una articulación o para detectar la presencia de piezas de juego.
+Aunque los beam breaks y los finales de carrera detectan la presencia de un objeto, se diferencian en cómo lo hacen.
+Los beam breaks detectan si un haz de luz está siendo bloqueado por un objeto, mientras que los finales de carrera necesitan contacto físico con el objeto para detectarlo.
+
+## Unidades de medición inercial (IMU)
+
+Una IMU es un sensor que combina un acelerómetro y un giroscopio.
+Las IMU se usan para medir la orientación, las velocidades de rotación y la aceleración de un robot, y devuelven estas señales como un [`Rotation2d`](https://github.wpilib.org/allwpilib/docs/2027/java/org/wpilib/math/geometry/Rotation2d.html).
+Normalmente usan grados o radianes para la posición angular (yaw/rumbo, pitch y roll) y grados por segundo o radianes por segundo para la velocidad angular.
+Se pueden usar para leer el rumbo del robot y para los cálculos de odometría.
+Las IMU más populares en FRC son la navX2, la Pigeon 2.0 y la IMU integrada en el Systemcore.
+Ten en cuenta que la IMU integrada en el Systemcore es nueva en 2027 y no ha pasado por pruebas exitosas significativas.
+
+Una cosa importante a tener en cuenta es que los giroscopios miden velocidad y no posición.
+La posición se deduce midiendo repetidamente la velocidad angular y multiplicando esos valores por el tiempo transcurrido entre lecturas.
+Las medidas de ángulo del giroscopio siempre son relativas a un ángulo cero arbitrario, determinado por el ángulo del giroscopio cuando se encendió el robot o cuando se llamó a un método de puesta a cero.
+Pueden acumular errores (lo que se llama «deriva») que crecen cuanto más tiempo se usa el giroscopio.
